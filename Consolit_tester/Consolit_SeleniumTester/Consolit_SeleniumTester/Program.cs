@@ -208,7 +208,7 @@ namespace Consolit_SeleniumTester
             systemutvecklare.Click();
             
 
-            IWebElement embedded = driver.FindElement(By.Id("comp - jbetnbm4link"));
+            IWebElement embedded = driver.FindElement(By.Id("comp-jbetnbm4link"));
             embedded.Click();
             
             IWebElement cgartist = driver.FindElement(By.Id("comp-jbetob6mlink"));
