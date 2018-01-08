@@ -8,15 +8,24 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
+
+
 namespace Consolit_SeleniumTester
 {
-    class Program
+    class Tests
     {   //Create the reference for our browser
-        IWebDriver driver = new ChromeDriver();
+        IWebDriver driver;
+
+        static void Main(string[] args)
+        {
+
+        }
 
         [SetUp]
         public void Initialize()
         {
+            driver = new ChromeDriver();
+
             //Navigate to google page
             driver.Navigate().GoToUrl("https://consolit.se");
             Console.WriteLine("Opened URL");
@@ -26,6 +35,7 @@ namespace Consolit_SeleniumTester
         [Test]
         public void ExecuteTests()
         {
+
             Thread.Sleep(2000);
             //find the element
             IWebElement element = driver.FindElement(By.CssSelector("#field1"));
@@ -37,12 +47,12 @@ namespace Consolit_SeleniumTester
 
             Thread.Sleep(5000);
             Console.WriteLine("Executed test");
-            
         }
 
         [Test]
-        public void SecondTest()
+        public void NextTest()
         {
+
             //testing if the title is the same
             Assert.AreEqual("HEM | consolit", driver.Title);
 
@@ -52,6 +62,7 @@ namespace Consolit_SeleniumTester
         [Test]
         public void ThirdTest()
         {
+
             //testing if it can find or locate to the link and wait for it to be clicked, 
             //then it tests if its the same link?
             Thread.Sleep(2000);
@@ -63,6 +74,7 @@ namespace Consolit_SeleniumTester
         [Test]
         public void FourthTest()
         {
+
             //testing if it can find or locate to the link and wait for it to be clicked, 
             //then it tests if its the same link?
             //find the element
@@ -75,7 +87,7 @@ namespace Consolit_SeleniumTester
             field1.SendKeys("Emine");
             field2.SendKeys("emine@consolit.se");
             field3.SendKeys("Test");
-            meddelande.SendKeys("hej");
+            meddelande.SendKeys("nytt test");
             Thread.Sleep(2000);
             //var href = driver.FindElement(By.PartialLinkText("info@")).GetAttribute("href");
             //Assert.True(href.Contains("info@"));
@@ -100,6 +112,7 @@ namespace Consolit_SeleniumTester
         [Test]
         public void FifthTest()
         {
+
             Thread.Sleep(2000);
             //navigate to consolit.se
             // driver.Navigate().GoToUrl("https://consolit.se");
@@ -118,14 +131,15 @@ namespace Consolit_SeleniumTester
         }
 
         [Test]
-        public void ÁnsokViaMeny()
+        public void AnsokViaMeny()
         {
+
             Thread.Sleep(2000);
             //navigate to consolit.se
             //driver.Navigate().GoToUrl("https://consolit.se");
             //clicking to ATT VARA EN consolit
-            TimeSpan t = new TimeSpan(30);
-
+            //TimeSpan t = new TimeSpan(30);
+            //WebDriverWait wait = new WebDriverWait(driver, t);
             //driver.FindElement(By.Id("comp-jakvhh0j1bg")).Click();
             driver.FindElement(By.PartialLinkText("ATT VARA EN ")).Click();
             var text1 = driver.FindElement(By.PartialLinkText("ATT VARA EN ")).Text;
@@ -150,6 +164,7 @@ namespace Consolit_SeleniumTester
         [Test]
         public void AnsokTest()
         {
+
 
             //navigate to consolit.se
             //clicking to ATT VARA EN consolit
@@ -204,15 +219,15 @@ namespace Consolit_SeleniumTester
             systemutvecklare.Click();
 
 
-            IWebElement embedded = driver.FindElement(By.Id("comp-jbetnbm4link"));
-            embedded.Click();
+            /* IWebElement embedded = driver.FindElement(By.Id("comp-jbetnbm4link"));
+             embedded.Click();
 
-            IWebElement cgartist = driver.FindElement(By.Id("comp-jbetob6mlink"));
-            cgartist.Click();
+             IWebElement cgartist = driver.FindElement(By.Id("comp-jbetob6mlink"));
+             cgartist.Click();
 
 
-            IWebElement spontan = driver.FindElement(By.Id("comp-jakwkqxqlink"));
-            spontan.Click();
+             IWebElement spontan = driver.FindElement(By.Id("comp-jakwkqxqlink"));
+             spontan.Click();*/
             Thread.Sleep(5000);
         }
 
@@ -220,6 +235,7 @@ namespace Consolit_SeleniumTester
         [TearDown]
         public void CleanUp()
         {
+
             //close the driver
             driver.Close();
             Console.WriteLine("Closed the browser");
