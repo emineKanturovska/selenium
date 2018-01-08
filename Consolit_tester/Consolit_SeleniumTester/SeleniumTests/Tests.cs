@@ -37,6 +37,7 @@ namespace Consolit_SeleniumTester
 
             Thread.Sleep(5000);
             Console.WriteLine("Executed test");
+            
         }
 
         [Test]
@@ -74,7 +75,7 @@ namespace Consolit_SeleniumTester
             field1.SendKeys("Emine");
             field2.SendKeys("emine@consolit.se");
             field3.SendKeys("Test");
-            meddelande.SendKeys("nytt test");
+            meddelande.SendKeys("hej");
             Thread.Sleep(2000);
             //var href = driver.FindElement(By.PartialLinkText("info@")).GetAttribute("href");
             //Assert.True(href.Contains("info@"));
